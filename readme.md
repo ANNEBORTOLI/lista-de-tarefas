@@ -16,8 +16,6 @@ $ `npm install`
 
 $ `npm run dev`
 
-Com o ambiente está rodando, basta acessar http://localhost:3000
-
 ### Testando com o Postman
 
 O arquivo JSON com a colleção do Postman se encontra na pasta Postman-Collection.
