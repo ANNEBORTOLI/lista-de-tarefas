@@ -3,47 +3,54 @@ const TaskService = require("./service");
 class Controller {
 
   list(req, res) {
-    console.log('Entrou no controller list')
     const tasks = TaskService.findAll();
+
+    if (tasks.length == 0) {
+      res.json({ "status": "No tasks found" });
+    }
     res.json(tasks);
   }
 
   listById(req, res) {
-    console.log('Entrou no controller listById')
     const task = TaskService.findById(req.params.id);
+
+    if (!task) {
+      res.json({ "status": "Task not found" })
+    }
     res.json(task);
   }
 
   create(req, res) {
-    console.log('Entrou no controller create')
-
     const text = req.body.text;
     const status = req.body.status;
+
+    if (text.length <= 2) {
+      res.json({ "error": "Invalid text" })
+    }
 
     TaskService.addTask({ text: text, status: status });
     res.json({ "success": true });
   }
 
   update(req, res) {
-    console.log('Entrou no controller update');
-    console.log(req.body);
     const newTask = {
       id: req.params.id,
-      text: req.body.text, // undefined
-      status: req.body.status // undefined
+      text: req.body.text,
+      status: req.body.status
     };
-    console.log(newTask)
-    TaskService.updateTask(newTask);
 
+    if (newTask.text.length <= 2) {
+      res.json({ "error": "Invalid text" })
+    }
+
+    TaskService.updateTask(newTask);
     res.json({ "success": true });
   }
 
   remove(req, res) {
-    console.log('Entrou no controller remove')
 
     const id = req.params.id;
     const status = TaskService.removeTask(id);
-
     res.json({ "success": status });
   }
 }

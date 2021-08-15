@@ -5,8 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 // Adicionando Rotas
-const tarefasRouter = require('./tarefas/routes');
-
+const tasksRouter = require('./tasks/routes');
 
 const app = express();
 
@@ -16,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // 
-app.use('/api/tarefas', tarefasRouter);
+app.use('/api/tasks', tasksRouter);
 
 
 // catch 404 and forward to error handler

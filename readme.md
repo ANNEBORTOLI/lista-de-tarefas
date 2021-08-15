@@ -1,7 +1,23 @@
-## Simple CRUD 
+# Simple CRUD - Create, read, update and Delete
 
-This is a backend only application of CRUD using in a local array of task objects. 
+Essa é uma simples aplicação de um CRUD utilizando uma array local de tarefas.
 
-CRUD is an acronym that comes from the world of computer programming and refers to the four functions that are considered necessary to implement a persistent storage application: create, read, update and delete.
+## Proposta
 
+Implementar um CRUD simples utilizando uma array local.
 
+### Instalação e utilização
+
+- Instalar as dependências
+
+$ `npm install`
+
+- Rodando o Servidor
+
+$ `npm run dev`
+
+Com o ambiente está rodando, basta acessar http://localhost:3000
+
+### Testando com o Postman
+
+O arquivo JSON com a colleção do Postman se encontra na pasta Postman-Collection.
